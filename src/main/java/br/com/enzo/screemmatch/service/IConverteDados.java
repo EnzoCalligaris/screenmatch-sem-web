@@ -1,4 +1,4 @@
-package br.com.enzo.screammatch.service;
+package br.com.enzo.screemmatch.service;
 
 public interface IConverteDados {
     <T> T obterDados(String json, Class<T> classe);

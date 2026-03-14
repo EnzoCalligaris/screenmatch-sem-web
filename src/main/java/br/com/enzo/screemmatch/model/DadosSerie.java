@@ -1,4 +1,4 @@
-package br.com.enzo.screammatch.model;
+package br.com.enzo.screemmatch.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.enzo</groupId>
-	<artifactId>screammatch</artifactId>
+	<artifactId>screemmatch</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>screammatch</name>
 	<description>Primeiro projeto Spring sem web</description>

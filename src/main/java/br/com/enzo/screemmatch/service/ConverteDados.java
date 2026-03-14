@@ -1,4 +1,4 @@
-package br.com.enzo.screammatch.service;
+package br.com.enzo.screemmatch.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

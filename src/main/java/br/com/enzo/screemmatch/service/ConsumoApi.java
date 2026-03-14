@@ -1,4 +1,4 @@
-package br.com.enzo.screammatch.service;
+package br.com.enzo.screemmatch.service;
 
 import java.io.IOException;
 import java.net.URI;

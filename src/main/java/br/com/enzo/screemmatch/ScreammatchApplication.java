@@ -1,8 +1,8 @@
-package br.com.enzo.screammatch;
+package br.com.enzo.screemmatch;
 
-import br.com.enzo.screammatch.model.DadosSerie;
-import br.com.enzo.screammatch.service.ConsumoApi;
-import br.com.enzo.screammatch.service.ConverteDados;
+import br.com.enzo.screemmatch.model.DadosSerie;
+import br.com.enzo.screemmatch.service.ConsumoApi;
+import br.com.enzo.screemmatch.service.ConverteDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
