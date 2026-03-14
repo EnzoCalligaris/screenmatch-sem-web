@@ -1,4 +1,4 @@
-package br.com.enzo.screemmatch;
+package br.com.enzo.screenmatch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package br.com.enzo.screemmatch.service;
+package br.com.enzo.screenmatch.service;
 
 import java.io.IOException;
 import java.net.URI;
@@ -7,6 +7,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConsumoApi {
+
     public String obterDados(String endereco) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
