@@ -1,5 +1,6 @@
 package br.com.enzo.screenmatch.principal;
 
+import br.com.enzo.screenmatch.model.DadosEpisodios;
 import br.com.enzo.screenmatch.model.DadosSerie;
 import br.com.enzo.screenmatch.model.DadosTemporada;
 import br.com.enzo.screenmatch.service.ConsumoApi;
@@ -33,6 +34,8 @@ public class Principal {
 			dadosTemporadas.add(dadosTemporada);
         }
 		dadosTemporadas.forEach(System.out::println);
+
+        dadosTemporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
 
     }
 }
