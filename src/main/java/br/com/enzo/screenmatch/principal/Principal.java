@@ -3,6 +3,7 @@ package br.com.enzo.screenmatch.principal;
 import br.com.enzo.screenmatch.model.DadosEpisodios;
 import br.com.enzo.screenmatch.model.DadosSerie;
 import br.com.enzo.screenmatch.model.DadosTemporada;
+import br.com.enzo.screenmatch.model.Episodio;
 import br.com.enzo.screenmatch.service.ConsumoApi;
 import br.com.enzo.screenmatch.service.ConverteDados;
 
@@ -43,5 +44,9 @@ public class Principal {
 
         System.out.println("\n Top 5 episódios");
         dadosEpisodios.stream().filter(e -> !e.avaliacao().equalsIgnoreCase("N/A")).sorted(Comparator.comparing(DadosEpisodios::avaliacao).reversed()).limit(3).forEach(System.out::println);
+
+        List<Episodio> episodios = dadosTemporadas.stream().flatMap(t -> t.episodios().stream().map(d -> new Episodio(t.temporada(), d))).collect(Collectors.toList());
+
+        episodios.forEach(System.out::println);
     }
 }
