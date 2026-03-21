@@ -11,7 +11,7 @@ public class Episodio {
     private Double avaliacao;
 
     public Episodio(Integer numTemporada, DadosEpisodios dadosEpisodios) {
-        this.temporada = numero = numTemporada;
+        this.temporada = numTemporada;
         this.titulo = dadosEpisodios.titulo();
         this.numero = dadosEpisodios.numEpisodios();
         try {
