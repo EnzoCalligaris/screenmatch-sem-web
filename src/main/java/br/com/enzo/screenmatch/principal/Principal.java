@@ -2,12 +2,15 @@ package br.com.enzo.screenmatch.principal;
 
 import br.com.enzo.screenmatch.model.DadosSerie;
 import br.com.enzo.screenmatch.model.DadosTemporada;
+import br.com.enzo.screenmatch.model.Serie;
 import br.com.enzo.screenmatch.service.ConsumoApi;
 import br.com.enzo.screenmatch.service.ConverteDados;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Principal {
     private Scanner sc = new Scanner(System.in);
@@ -80,6 +83,8 @@ public class Principal {
     }
 
     private void listarSeriesBuscadas(){
-        dadosSeries.forEach(System.out::println);
+        List<Serie> series = new ArrayList<>();
+        series = dadosSeries.stream().map(d -> new Serie(d)).collect(Collectors.toList());
+        series.stream().sorted(Comparator.comparing(Serie::getGenero)).forEach(System.out::println);
     }
 }
