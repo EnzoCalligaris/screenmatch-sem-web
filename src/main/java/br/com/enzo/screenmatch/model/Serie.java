@@ -1,5 +1,7 @@
 package br.com.enzo.screenmatch.model;
 
+import br.com.enzo.screenmatch.service.ConsultaMyMemory;
+
 import java.util.OptionalDouble;
 
 public class Serie {
@@ -18,7 +20,7 @@ public class Serie {
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
-        this.sinops = dadosSerie.sinops();
+        this.sinops = ConsultaMyMemory.obterTraducao(dadosSerie.sinops()).trim();
     }
 
     public String getTitulo() {
