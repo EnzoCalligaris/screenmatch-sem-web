@@ -3,8 +3,10 @@ package br.com.enzo.screenmatch.principal;
 import br.com.enzo.screenmatch.model.DadosSerie;
 import br.com.enzo.screenmatch.model.DadosTemporada;
 import br.com.enzo.screenmatch.model.Serie;
+import br.com.enzo.screenmatch.repository.SerieRepository;
 import br.com.enzo.screenmatch.service.ConsumoApi;
 import br.com.enzo.screenmatch.service.ConverteDados;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -21,6 +23,12 @@ public class Principal {
     private final String API_KEY = "&apikey=db2a7b69";
 
     private List<DadosSerie> dadosSeries =  new ArrayList<>();
+
+    private SerieRepository repositorio;
+
+    public Principal(SerieRepository repositorio) {
+        this.repositorio = repositorio;
+    }
 
     public void exibeMenu() {
         var opcao = -1;
@@ -58,7 +66,8 @@ public class Principal {
 
     private void buscarSerieWeb() {
         DadosSerie dados = getDadosSerie();
-        dadosSeries.add(dados);
+        Serie serie = new Serie(dados);
+        repositorio.save(serie);
         System.out.println(dados);
     }
 

@@ -3,6 +3,8 @@ package br.com.enzo.screenmatch.model;
 import br.com.enzo.screenmatch.service.ConsultaMyMemory;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.OptionalDouble;
 
 @Entity
@@ -24,6 +26,9 @@ public class Serie {
     private String poster;
     private String sinops;
 
+    @Transient
+    private List<Episodio> episodios = new ArrayList<>();
+
     public Serie(DadosSerie dadosSerie) {
         this.titulo = dadosSerie.titulo();
         this.totalTemporadas = dadosSerie.totalTemporadas();
@@ -32,6 +37,14 @@ public class Serie {
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
         this.sinops = ConsultaMyMemory.obterTraducao(dadosSerie.sinops()).trim();
+    }
+
+    public List<Episodio> getEpisodios() {
+        return episodios;
+    }
+
+    public void setEpisodios(List<Episodio> episodios) {
+        this.episodios = episodios;
     }
 
     public Long getId() {
