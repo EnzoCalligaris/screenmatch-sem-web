@@ -1,6 +1,6 @@
 package br.com.enzo.screenmatch.model;
 
-import br.com.enzo.screenmatch.service.ConsultaMyMemory;
+import br.com.enzo.screenmatch.service.traducao.ConsultaMyMemory;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -28,6 +28,8 @@ public class Serie {
 
     @Transient
     private List<Episodio> episodios = new ArrayList<>();
+
+    public Serie(){}
 
     public Serie(DadosSerie dadosSerie) {
         this.titulo = dadosSerie.titulo();

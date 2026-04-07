@@ -1,6 +1,6 @@
-package br.com.enzo.screenmatch.service;
+package br.com.enzo.screenmatch.service.traducao;
 
-import br.com.enzo.screenmatch.service.traducao.DadosTraducao;
+import br.com.enzo.screenmatch.service.ConsumoApi;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
