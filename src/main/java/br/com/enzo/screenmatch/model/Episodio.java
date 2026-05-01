@@ -69,6 +69,14 @@ public class Episodio {
         return avaliacao;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setSerie(Serie serie) {
+        this.serie = serie;
+    }
+
     public void setTemporada(Integer temporada) {
         this.temporada = temporada;
     }
