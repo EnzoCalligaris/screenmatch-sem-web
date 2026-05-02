@@ -1,9 +1,6 @@
 package br.com.enzo.screenmatch.principal;
 
-import br.com.enzo.screenmatch.model.DadosSerie;
-import br.com.enzo.screenmatch.model.DadosTemporada;
-import br.com.enzo.screenmatch.model.Episodio;
-import br.com.enzo.screenmatch.model.Serie;
+import br.com.enzo.screenmatch.model.*;
 import br.com.enzo.screenmatch.repository.SerieRepository;
 import br.com.enzo.screenmatch.service.ConsumoApi;
 import br.com.enzo.screenmatch.service.ConverteDados;
@@ -40,6 +37,7 @@ public class Principal {
                 4 - Buscar séries por título
                 5 - Buscar séries por ator
                 6 - Top 5 Séries
+                7 - Buscar série por categotia
                 
                 0 - Sair                                 
                 """;
@@ -66,6 +64,9 @@ public class Principal {
                     break;
                 case 6:
                     buscarTop5Serie();
+                    break;
+                case 7:
+                    buscarSeriesPorCategoria();
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -150,5 +151,14 @@ public class Principal {
     private void buscarTop5Serie() {
         List<Serie> serieTop = repositorio.findTop5ByOrderByAvaliacaoDesc();
         serieTop.forEach(s -> System.out.println(s.getTitulo() + " avaliação: " + s.getAvaliacao()));
+    }
+
+    private void buscarSeriesPorCategoria() {
+        System.out.println("Deseja buscar séries de que categoria/gênero? ");
+        var nomeCategoria = sc.nextLine();
+        Categoria categoria = Categoria.fromPortugues(nomeCategoria);
+        List<Serie> seriesPorCategoria = repositorio.findByGenero(categoria);
+        System.out.println("Séries por categoria " + nomeCategoria);
+        seriesPorCategoria.forEach(System.out::println);
     }
 }
