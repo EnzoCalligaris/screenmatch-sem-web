@@ -172,7 +172,7 @@ public class Principal {
         System.out.printf("Com avaliação a partir de que valor? ");
         var avaliacao = sc.nextDouble();
         sc.nextLine();
-        List<Serie> filtrosSeries = repositorio.findByTotalTemporadasLessThanEqualAndAvaliacaoGreaterThanEqual(totalTemporadas, avaliacao);
+        List<Serie> filtrosSeries = repositorio.seriesPorTemporadaEAvaliacao(totalTemporadas, avaliacao);
         System.out.println("*** Séries filtradas ***");
         filtrosSeries.forEach(s -> System.out.println(s.getTitulo() + " avaliacao: " + s.getAvaliacao()));
     }
