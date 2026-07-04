@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,5 +34,16 @@ public class SerieService {
 
     public List<SerieDTO> obterLancamentos() {
         return converteDados(repositorio.findTop5ByOrderByEpisodiosDataLancamentoDesc());
+    }
+
+    public SerieDTO obterPorId(Long id) {
+        Optional<Serie> serie = repositorio.findById(id);
+        if (serie.isPresent()) {
+            Serie s = serie.get();
+            return new SerieDTO(s.getId(), s.getTitulo(),
+                    s.getTotalTemporadas(), s.getAvaliacao(), s.getGenero(), s.getAtores(), s.getPoster(),
+                    s.getSinops());
+        }
+        return null;
     }
 }
