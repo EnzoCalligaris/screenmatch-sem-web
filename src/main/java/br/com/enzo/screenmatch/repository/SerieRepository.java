@@ -3,6 +3,7 @@ package br.com.enzo.screenmatch.repository;
 import br.com.enzo.screenmatch.model.Categoria;
 import br.com.enzo.screenmatch.model.Episodio;
 import br.com.enzo.screenmatch.model.Serie;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -32,4 +33,7 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
 
     @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE s = :serie AND YEAR(e.dataLancamento) >= :anoLancamento")
     List<Episodio> episodiosPorSerieEAno(Serie serie, String anoLancamento);
+
+    List<Serie> findTop5ByOrderByEpisodiosDataLancamentoDesc();
+
 }

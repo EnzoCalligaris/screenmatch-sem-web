@@ -4,6 +4,7 @@ import br.com.enzo.screenmatch.dto.SerieDTO;
 import br.com.enzo.screenmatch.model.Serie;
 import br.com.enzo.screenmatch.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,5 +29,9 @@ public class SerieService {
         return series.stream().map(s -> new SerieDTO(s.getId(), s.getTitulo(),
                 s.getTotalTemporadas(), s.getAvaliacao(), s.getGenero(), s.getAtores(), s.getPoster(),
                 s.getSinops())).collect(Collectors.toList());
+    }
+
+    public List<SerieDTO> obterLancamentos() {
+        return converteDados(repositorio.findTop5ByOrderByEpisodiosDataLancamentoDesc());
     }
 }
