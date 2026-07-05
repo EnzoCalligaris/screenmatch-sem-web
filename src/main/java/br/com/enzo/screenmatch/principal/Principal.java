@@ -112,7 +112,7 @@ public class Principal {
 
     private void buscarEpisodioPorSerie(){
         listarSeriesBuscadas();
-        System.out.println("Escolha uma série pleo nome: ");
+        System.out.println("Escolha uma série pelo nome: ");
         var nomeSerie = sc.nextLine();
 
         Optional<Serie> serie = repositorio.findByTituloContainingIgnoreCase(nomeSerie);
