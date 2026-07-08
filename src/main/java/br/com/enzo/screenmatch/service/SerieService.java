@@ -1,5 +1,6 @@
 package br.com.enzo.screenmatch.service;
 
+import br.com.enzo.screenmatch.dto.EpisodioDTO;
 import br.com.enzo.screenmatch.dto.SerieDTO;
 import br.com.enzo.screenmatch.model.Serie;
 import br.com.enzo.screenmatch.repository.SerieRepository;
@@ -43,6 +44,15 @@ public class SerieService {
             return new SerieDTO(s.getId(), s.getTitulo(),
                     s.getTotalTemporadas(), s.getAvaliacao(), s.getGenero(), s.getAtores(), s.getPoster(),
                     s.getSinops());
+        }
+        return null;
+    }
+
+    public List<EpisodioDTO> obterTodasAsTemporadas(Long id) {
+        Optional<Serie> serie = repositorio.findById(id);
+        if (serie.isPresent()) {
+            Serie s = serie.get();
+            return s.getEpisodios().stream().map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(), e.getNumero())).collect(Collectors.toList());
         }
         return null;
     }
