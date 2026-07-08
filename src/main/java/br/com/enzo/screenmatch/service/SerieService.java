@@ -2,6 +2,7 @@ package br.com.enzo.screenmatch.service;
 
 import br.com.enzo.screenmatch.dto.EpisodioDTO;
 import br.com.enzo.screenmatch.dto.SerieDTO;
+import br.com.enzo.screenmatch.model.Episodio;
 import br.com.enzo.screenmatch.model.Serie;
 import br.com.enzo.screenmatch.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,10 @@ public class SerieService {
             return s.getEpisodios().stream().map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(), e.getNumero())).collect(Collectors.toList());
         }
         return null;
+    }
+
+    public List<EpisodioDTO> obterTemporadasPorNumero(Long id, Long numero) {
+        return repositorio.obterEpisodiosPorTemporada(id, numero).stream()
+                .map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(), e.getNumero())).collect(Collectors.toList());
     }
 }
