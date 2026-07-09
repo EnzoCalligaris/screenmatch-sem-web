@@ -2,6 +2,7 @@ package br.com.enzo.screenmatch.service;
 
 import br.com.enzo.screenmatch.dto.EpisodioDTO;
 import br.com.enzo.screenmatch.dto.SerieDTO;
+import br.com.enzo.screenmatch.model.Categoria;
 import br.com.enzo.screenmatch.model.Episodio;
 import br.com.enzo.screenmatch.model.Serie;
 import br.com.enzo.screenmatch.repository.SerieRepository;
@@ -61,5 +62,10 @@ public class SerieService {
     public List<EpisodioDTO> obterTemporadasPorNumero(Long id, Long numero) {
         return repositorio.obterEpisodiosPorTemporada(id, numero).stream()
                 .map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(), e.getNumero())).collect(Collectors.toList());
+    }
+
+    public List<SerieDTO> obterSerisPorCategori(String nomeGenero) {
+        Categoria categoria = Categoria.fromPortugues(nomeGenero);
+        return converteDados(repositorio.findByGenero(categoria));
     }
 }
